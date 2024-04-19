@@ -47,6 +47,8 @@ PAISES =  {
     }
 }
 
+lista_paises=['Brasil', 'França', 'Austrália', 'Rússia', 'Japão']
+
 # alfabeto para montar o nome das colunas
 ALFABETO = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
