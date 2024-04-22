@@ -18,11 +18,44 @@ posicao_num=input('Informe o número:')
 posicao=posicao_letra + posicao_num
 
 
-
-
 #for arma in lista_frota:
     #aloca
 
+#for arma in lista_frota:
+    #aloca
+    # if arma=='cruzador':
+    #     print('▓'*2)
+    # if arma=='porta-avioes':
+    #     print('▓'*5)
+    # if arma=='couracado':
+    #     print('▓'*4)
+    # if arma=='destroyer':
+    #     print('▓'*3)
+    # if arma=='submarino':
+    #     print('▓'*2)
+    # if arma=='torpedeiro':
+    #     print('▓'*)????????
+
+print('Iniciando batalha naval!')
+time.sleep(1)
+i=5
+while i!=0:
+    print(i)
+    time.sleep(1)
+    i-=1
 
 
-#quando ganhar: print('Você venceu!') print('Temos um novo cherife nos mares!')
+#criar um dicionario com as posicoes em que há navioes depois de alocar
+#se a posicao estiver no dicionario: boomm, senao: agua 
+
+
+#venceu=foi_derrotado(mapa)
+
+# if venceu==True:
+#     print('Você venceu!')
+#     print('Temos um novo cherife nos mares!')
+#     print('Jogar novamente? [s/n]')
+# else:
+#     print('Você perdeu!')
+#     print('O computador ainda é o senhor dos mares!')
+#     print('Jogar novamente? [s/n]')
