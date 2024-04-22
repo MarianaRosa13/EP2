@@ -13,9 +13,15 @@ for navio,quant in dicio.items():
     for i in range(quant):
         lista_frota.append(navio)
 
-posicao_letra=input('Informe a letra:')
+posicao_letra=input('Informe a letra:').upper()
 posicao_num=input('Informe o número:')
 posicao=posicao_letra + posicao_num
+print(posicao)
+
+cabecalho=''
+for i in ALFABETO:
+    cabecalho+=' '+ i + ' '
+print(cabecalho) 
 
 
 #for arma in lista_frota:
