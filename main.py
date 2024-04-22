@@ -17,5 +17,4 @@ for arma in lista_frota:
 
 
 
-
 #quando ganhar: print('Você venceu!') print('Temos um novo cherife nos mares!')
