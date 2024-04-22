@@ -1,5 +1,6 @@
 from constants import *
-
+from functions import *
+import time
 
 print(PAISES)
 num_pais=int(input('Qual é o número da nação da sua frota?'))
@@ -12,7 +13,14 @@ for navio,quant in dicio.items():
     for i in range(quant):
         lista_frota.append(navio)
 
-for arma in lista_frota:
+posicao_letra=input('Informe a letra:')
+posicao_num=input('Informe o número:')
+posicao=posicao_letra + posicao_num
+
+
+
+
+#for arma in lista_frota:
     #aloca
 
 
