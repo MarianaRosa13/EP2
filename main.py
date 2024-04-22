@@ -44,10 +44,12 @@ while i!=0:
     time.sleep(1)
     i-=1
 
-
+#criar mapa
+#adicionar informações no mapa
+#criar o código que o computador vai executar
 #criar um dicionario com as posicoes em que há navioes depois de alocar
 #se a posicao estiver no dicionario: boomm, senao: agua 
-
+#cores
 
 #venceu=foi_derrotado(mapa)
 

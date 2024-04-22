@@ -14,3 +14,5 @@ def foi_derrotado(matriz):
             if linha[j]=='N':
                 return False
     return True
+
+print(cria_mapa(10))
