@@ -46,8 +46,13 @@ while i!=0:
 
 
 #criar um dicionario com as posicoes em que há navioes depois de alocar
+<<<<<<< HEAD
 #se a posicao estiver no dicionario: boomm, senao: agua
 
+=======
+#se a posicao estiver no dicionario: boomm, senao: agua 
+#cores
+>>>>>>> 557e45eea504786546e134ba57509da9a7496f5f
 
 #venceu=foi_derrotado(mapa)
 
