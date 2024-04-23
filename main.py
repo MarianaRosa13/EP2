@@ -5,6 +5,7 @@ import time
 print(PAISES)
 num_pais=int(input('Qual é o número da nação da sua frota?'))
 print(f'Você escolheu a nação {lista_paises[num_pais-1]}')
+n=int(input('Qual é o tamanho do seu tabuleiro?'))
 print('Agora é a sua vez de alocar seus navios de guerra!')
 
 dicio=PAISES[lista_paises[num_pais-1]]
@@ -13,19 +14,31 @@ for navio,quant in dicio.items():
     for i in range(quant):
         lista_frota.append(navio)
 
+
+letras=ALFABETO[:n]
+cabecalho=''
+for i in letras:
+    cabecalho+=' '+ i + ' '
+
+grade=''
+i=0
+while i<=n:
+    grade+=NUMEROS[i]
+    i+=1
+
 posicao_letra=input('Informe a letra:').upper()
+while posicao_letra not in cabecalho:
+    print('Posição inválida')
+    posicao_letra=input('Informe a letra:').upper()
 posicao_num=input('Informe o número:')
+if posicao_num not in grade:
+    print('Posição inválida')
+    posicao_num=input('Informe o número:')
 posicao=posicao_letra + posicao_num
 print(posicao)
 
-cabecalho=''
-for i in ALFABETO:
-    cabecalho+=' '+ i + ' '
 print(cabecalho) 
 
-
-#for arma in lista_frota:
-    #aloca
 
 #for arma in lista_frota:
     #aloca
