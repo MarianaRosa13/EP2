@@ -53,5 +53,3 @@ def aloca_navios(mapa,lista):
             elif orientacao=='v':
                 mapa[linha+i][coluna]='N'            
     return mapa
-
-print(cria_mapa(10))

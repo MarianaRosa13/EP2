@@ -52,7 +52,7 @@ lista_paises=['Brasil', 'França', 'Austrália', 'Rússia', 'Japão']
 # alfabeto para montar o nome das colunas
 ALFABETO = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-NUMEROS='12345678910'
+NUMEROS='012345678910'
 
 # cores para o terminal
 CORES = {
