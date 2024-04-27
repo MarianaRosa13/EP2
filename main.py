@@ -2,7 +2,17 @@ from constants import *
 from functions import *
 import time
 
+# paises_stg=''
+# i=0
+# for pais,frota in PAISES.items():
+#    paises_stg+='1'
+#    paises_stg+=': '
+#    paises_stg+=pais + '\n'
+#    for arma,qtd in frota:
+#       paises_stg+=qtd + frota
+#    i+=1
 print(PAISES)
+#print(paises_stg)
 num_pais=int(input('Qual é o número da nação da sua frota?'))
 print(f'Você escolheu a nação {lista_paises[num_pais-1]}')
 n=int(input('Qual é o tamanho do seu tabuleiro?'))
@@ -78,9 +88,10 @@ for arma in lista_frota:
         if ALFABETO[l]==posicao_letra:
            num_coluna=l
            print(num_coluna)
-     for navio,quant in dicio.items():
+     for navio,quant in dicio.items():    #ELE TA PASSANDO OS NAVIOS MAIS RAPIDO DO QUE ALOCA!!!!!!!!
         if posicao_suporta(mapa,quant,num_linha,num_coluna,orient)==True:
            print('entrouuuuuuu')
+           print(navio)
            imprime_mapa(mapa)
            for i in range(0,quant):
             if orient=='h':
@@ -88,7 +99,7 @@ for arma in lista_frota:
             elif orient=='v':
                mapa[num_linha-1+i][num_coluna]=' N '
             imprime_mapa(mapa)
-            #lista_frota.remove(navio)
+            del lista_frota[lista_frota.index(navio)]
             print('Ainda falta: '+', '.join(lista_frota))
         # else:
         #    continue
