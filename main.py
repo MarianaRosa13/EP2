@@ -107,8 +107,8 @@ for arma in lista_frota:
 
 for pos in mapa:
     if pos==' N ':
-        pos='\u001b[33m▓'
-            #print(pos)
+        pos = u"\u001b[41m  \u001b[0m"
+print(pos)
 imprime_mapa(mapa)
 
 
@@ -132,9 +132,10 @@ num_atq=int(input('Digite o número:'))
 posicao_atq=mapa[num_atq][coluna_atq]
 print(posicao_atq)
 if posicao_atq==' N ':
+  posicao_atq=u"\u001b[41m  \u001b[0m"
   print(f'Jogador --->>>{posicao_atq}')
   print('BOOOMMM!!')
-  posicao_atq='\u001b[31m▓'
+  
 else:
   print(f'Jogador --->>>{posicao_atq}')
   print('Água!')
