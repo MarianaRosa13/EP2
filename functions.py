@@ -60,7 +60,7 @@ def aloca_navios(mapa,lista):
                 mapa[linha+i][coluna]=' N '            
     return mapa
 
-#função de imprime o mapa 
+#função que imprime o mapa 
 def imprime_mapa(m):
     dim = len(m)
     letras=ALFABETO[:dim]
