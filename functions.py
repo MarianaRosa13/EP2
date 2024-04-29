@@ -1,3 +1,4 @@
+#função que cria o mapa
 from constants import *
 
 def cria_mapa(n):
@@ -9,6 +10,7 @@ def cria_mapa(n):
         matriz.append(linha_nova)
     return matriz
 
+# função que define se o jogador perdeu
 def foi_derrotado(matriz):
     for i in range(len(matriz)):
         linha=matriz[i]
@@ -17,6 +19,7 @@ def foi_derrotado(matriz):
                 return False
     return True
 
+# função que define se a posição é válida
 def posicao_suporta(mapa,num,num_linha,pos_letra,orient):
     linha=mapa[num_linha]
     if orient=='h':
@@ -39,6 +42,7 @@ def posicao_suporta(mapa,num,num_linha,pos_letra,orient):
                     return False
     return True
 
+# função que aloca os navios
 import random
 def aloca_navios(mapa,lista):
     for quant in lista:
@@ -56,7 +60,7 @@ def aloca_navios(mapa,lista):
                 mapa[linha+i][coluna]=' N '            
     return mapa
 
-
+#função de imprime o mapa 
 def imprime_mapa(m):
     dim = len(m)
     letras=ALFABETO[:dim]

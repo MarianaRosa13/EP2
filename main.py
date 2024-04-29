@@ -1,7 +1,9 @@
+#imports
 from constants import *
 from functions import *
 import time
 
+#faz a string dos países
 paises_stg=''
 i=1
 for pais,frota in PAISES.items():
@@ -16,15 +18,18 @@ for pais,frota in PAISES.items():
 print(PAISES)
 print(paises_stg)
 
-
+#pede o numero do país para o usuário
 num_pais=int(input('Qual é o número da nação da sua frota?'))
+#printa a nação escolhida 
 print(f'Você escolheu a nação {lista_paises[num_pais-1]}')
+#pede o tamanho do tabuleiro
 n=int(input('Qual é o tamanho do seu tabuleiro?'))
 print('Agora é a sua vez de alocar seus navios de guerra!')
-
+#mostra o mapa do tamanho escolhido para o usuário
 mapa=cria_mapa(n)
 print(mapa)
 
+#
 dicio=PAISES[lista_paises[num_pais-1]]
 lista_frota=[]
 for navio,quant in dicio.items():
