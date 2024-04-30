@@ -188,11 +188,11 @@ while foi_derrotado(mapa)==False:
    print(mapa_comp[num_atq-1][coluna_atq-1])
    #posicao_atq_branco = mapa_comp_branco[num_atq-1][coluna_atq-1]
    print(f'Posicao comp: {posicao_atq}')
-   print(f'Posicao branco: {mapa_comp_branco[num_atq-1][coluna_atq-1]}')
+   print(f'Posicao branco: {mapa_comp_branco[num_atq-1][coluna_atq-1]}') 
    posicao_atq_stg=letra_atq + num_atq_stg
    if posicao_atq==X:
       print(f'Jogador --->>>{posicao_atq_stg}')
-      mapa_comp_branco[num_atq-1][coluna_atq-1] = X
+      mapa_comp_branco[num_atq-1][coluna_atq-1] = X 
       print('BOOOMMM!!')
       #print(posicao_atq_branco)
    else:
