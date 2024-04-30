@@ -21,7 +21,7 @@ def foi_derrotado(matriz):
 
 # função que define se a posição é válida
 def posicao_suporta(mapa,num,num_linha,pos_letra,orient):
-    linha=mapa[num_linha]
+    linha=mapa[num_linha-1]
     if orient=='h':
         if len(linha)-pos_letra<num:
             return False
@@ -29,7 +29,8 @@ def posicao_suporta(mapa,num,num_linha,pos_letra,orient):
             return False
         else:
             for i in range(0,num):
-                if mapa[num_linha][pos_letra+i]==' N ':
+                #if mapa[num_linha][pos_letra+i]==' N ':
+                if mapa[num_linha-1][pos_letra+i]==' N ':
                     return False
     elif orient=='v':
         if len(mapa)-num_linha<num:
@@ -66,7 +67,10 @@ def imprime_mapa(m):
     letras=ALFABETO[:dim]
     cabecalho=''
     for i in letras:
-        cabecalho+=' '+ i + ' '
+        if i=='A':
+            cabecalho+='  '+ i + ' '
+        else:
+            cabecalho+=' '+ i + ' '
     print(cabecalho)
     for lin in range(dim):
         linha = f'{lin+1} '
