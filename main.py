@@ -184,22 +184,19 @@ while foi_derrotado(mapa)==False:
       posicao_num=input('Digite o número:')
    print(f'Linha: {num_atq}')
    num_atq_stg=str(num_atq)
-   posicao_atq = mapa_comp[num_atq-1][coluna_atq-1]
-   print(mapa_comp[num_atq-1][coluna_atq-1])
-   #posicao_atq_branco = mapa_comp_branco[num_atq-1][coluna_atq-1]
+   posicao_atq = mapa_comp[num_atq-1][coluna_atq]
+   print(mapa_comp[num_atq-1][coluna_atq])
    print(f'Posicao comp: {posicao_atq}')
-   print(f'Posicao branco: {mapa_comp_branco[num_atq-1][coluna_atq-1]}') 
+   print(f'Posicao branco: {mapa_comp_branco[num_atq-1][coluna_atq]}') 
    posicao_atq_stg=letra_atq + num_atq_stg
    if posicao_atq==X:
       print(f'Jogador --->>>{posicao_atq_stg}')
-      mapa_comp_branco[num_atq-1][coluna_atq-1] = X 
+      mapa_comp_branco[num_atq-1][coluna_atq] = X 
       print('BOOOMMM!!')
-      #print(posicao_atq_branco)
    else:
       print(f'Jogador --->>>{posicao_atq_stg}')
-      posicao_atq_branco = A
+      mapa_comp_branco[num_atq-1][coluna_atq] = A
       print('Água!')
-      #print(posicao_atq_branco)
 
 if foi_derrotado(mapa)==True:
    print('Você perdeu!')
