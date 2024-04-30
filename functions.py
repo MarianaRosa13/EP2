@@ -31,7 +31,6 @@ def posicao_suporta(mapa,num,num_linha,pos_letra,orient):
             return False
         else:
             for i in range(0,num):
-                #if mapa[num_linha][pos_letra+i]==' N ':
                 if mapa[num_linha-1][pos_letra+i]== N:
                     return False
     elif orient=='v':
@@ -48,7 +47,7 @@ def posicao_suporta(mapa,num,num_linha,pos_letra,orient):
 # função que aloca os navios
 import random
 def aloca_navios(mapa,lista):
-    N=u"\u001b[41m  \u001b[0m "
+    X=u"\u001b[41m  \u001b[0m "
     for quant in lista:
         linha=random.randint(0, quant-1)
         coluna=random.randint(0, quant-1)
@@ -59,9 +58,9 @@ def aloca_navios(mapa,lista):
             orientacao=random.choice(['h', 'v'])
         for i in range(0,quant):
             if orientacao=='h':
-                mapa[linha][coluna+i]= N
+                mapa[linha][coluna+i]=X
             elif orientacao=='v':
-                mapa[linha+i][coluna]= N            
+                mapa[linha+i][coluna]=X           
     return mapa
 
 #função que imprime o mapa 

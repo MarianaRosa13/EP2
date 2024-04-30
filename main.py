@@ -3,6 +3,9 @@ from constants import *
 from functions import *
 import time
 
+#novamente='s'
+#while novamente=='s':
+
 #faz a string dos países
 paises_stg=''
 i=1
@@ -64,7 +67,7 @@ for arma in lista_frota:
    while posicao_letra not in cabecalho:
       print('Posição inválida')
       posicao_letra=input('Informe a letra:').upper()    #TA
-   #pedir o número, verificar se o número está na grade
+   #pedir o número, verificar se o número está no tamanho do mapa
    posicao_num=input('Informe o número:')
    num_linha=int(posicao_num)
    while num_linha>len(mapa):
@@ -76,7 +79,6 @@ for arma in lista_frota:
    print(posicao_stg)
    print(len(mapa))
    print(f'Linha: {num_linha}')
-   #fazendo o tabuleiro
    for l in range(len(ALFABETO)):
       if ALFABETO[l]==posicao_letra:
          num_coluna=l
@@ -84,7 +86,7 @@ for arma in lista_frota:
    #colocar o tamanho dos navios 
    for navio,quant in CONFIGURACAO.items():
       print(arma)
-      if arma in CONFIGURACAO.keys():                      #NAO
+      if arma in CONFIGURACAO.keys():
          quant=CONFIGURACAO[arma]
       print(f'Quantidade: {quant}')
    while posicao_suporta(mapa,quant,num_linha,num_coluna,orient)==False:
@@ -98,7 +100,7 @@ for arma in lista_frota:
          print('Posição inválida')
          posicao_num=input('Informe o número:')            #FUNCIONANDO!!!!!!!!!!
       orient=input('Informe a orientação: [v/h]')
-   if posicao_suporta(mapa,quant,num_linha,num_coluna,orient)==True:  #MEXER!!!!!!!!!
+   if posicao_suporta(mapa,quant,num_linha,num_coluna,orient)==True:
       print('entrouuuu')
       for i in range(0,quant):
          if orient=='h':
@@ -157,14 +159,21 @@ mapa_comp=aloca_navios(mapa_c,lista_aloc)
 print(mapa_comp)
 
 
+A=u"\u001b[44m  \u001b[0m "
+print(N)
+print(A)
+X=u"\u001b[41m  \u001b[0m "
+print(X)
+
 while foi_derrotado(mapa)==False:
+   imprime_mapa(mapa_comp)
    imprime_mapa(mapa_comp_branco)
    imprime_mapa(mapa)
    letra_atq=input('Digite a letra:').upper()
    while letra_atq not in cabecalho:
       print('Posição inválida')
-      posicao_letra=input('Informe a letra:').upper()
-      coluna_atq=0
+      letra_atq=input('Digite a letra:').upper()
+   coluna_atq=0
    for l in range(len(ALFABETO)):
       if ALFABETO[l]==letra_atq:
          coluna_atq=l
@@ -172,24 +181,25 @@ while foi_derrotado(mapa)==False:
    num_atq=int(input('Digite o número:'))
    while num_atq>len(mapa):
       print('Posição inválida')
-      posicao_num=input('Informe o número:')
+      posicao_num=input('Digite o número:')
    print(f'Linha: {num_atq}')
    num_atq_stg=str(num_atq)
    posicao_atq = mapa_comp[num_atq-1][coluna_atq-1]
-   posicao_atq_branco = mapa_comp_branco[num_atq-1][coluna_atq-1]
+   print(mapa_comp[num_atq-1][coluna_atq-1])
+   #posicao_atq_branco = mapa_comp_branco[num_atq-1][coluna_atq-1]
    print(f'Posicao comp: {posicao_atq}')
-   print(f'Posicao branco: {posicao_atq_branco}')
+   print(f'Posicao branco: {mapa_comp_branco[num_atq-1][coluna_atq-1]}')
    posicao_atq_stg=letra_atq + num_atq_stg
-   if posicao_atq== N:
+   if posicao_atq==X:
       print(f'Jogador --->>>{posicao_atq_stg}')
-      #print('BOOOMMM!!')
-      posicao_atq_branco=u"\u001b[41m  \u001b[0m "
+      mapa_comp_branco[num_atq-1][coluna_atq-1] = X
       print('BOOOMMM!!')
+      #print(posicao_atq_branco)
    else:
       print(f'Jogador --->>>{posicao_atq_stg}')
-      #print('Água!')
-      posicao_atq_branco=u"\u001b[44m  \u001b[0m "
+      posicao_atq_branco = A
       print('Água!')
+      #print(posicao_atq_branco)
 
 if foi_derrotado(mapa)==True:
    print('Você perdeu!')
