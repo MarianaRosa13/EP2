@@ -4,20 +4,19 @@ from functions import *
 import time
 
 #novamente='s'
-#while novamente=='s':
-
+#while novamente=='s'
 #faz a string dos países
-paises_stg=''
+paises_stg = ''
 i=1
 for pais,frota in PAISES.items():
-  i_stg=str(i)
-  paises_stg+=i_stg + ': '
-  paises_stg+=pais + '\n'
-  for arma,qtd in frota.items():
-    qtd_stg=str(qtd)
-    paises_stg+=qtd_stg + ' ' + arma + ' '
-  paises_stg+='\n'
-  i+=1
+   i_stg = str(i)
+   paises_stg+=i_stg + ': '
+   paises_stg+=pais + '\n'
+   for arma,qtd in frota.items():
+      qtd_stg=str(qtd)
+      paises_stg+=qtd_stg + ' ' + arma + ' '
+      paises_stg+='\n'
+   i+=1
 print(PAISES)
 print(paises_stg)
 
@@ -47,8 +46,8 @@ print(mapa)
 dicio=PAISES[lista_paises[num_pais-1]]
 lista_frota=[]
 for navio,quant in dicio.items():
-    for i in range(quant):
-        lista_frota.append(navio)
+   for i in range(quant):
+      lista_frota.append(navio)
 
 #define um cabeçalho
 cabecalho='  '
@@ -124,15 +123,15 @@ for arma in lista_frota:
          print('Ainda falta: '+', '.join(lista_frota))
 
 '''for pos in mapa:
-    if pos==' N ':
-        pos=u"\u001b[41m  \u001b[0m "
+   if pos==' N ':
+      pos=u"\u001b[41m  \u001b[0m "
             #print(pos)
 imprime_mapa(mapa)
 
 #mapa
 for pos in mapa:
-    for h in range(len(pos)):
-        if pos[h]==' N ':
+   for h in range(len(pos)):
+      if pos[h]==' N ':
             pos.remove(' N ')
             pos.insert(h, u"\u001b[41m  \u001b[0m ")
             mapa=' '.join(pos)
@@ -144,9 +143,9 @@ print('Iniciando batalha naval!')
 time.sleep(1)
 i=5
 while i!=0:
-    print(i)
-    #time.sleep(1)
-    i-=1
+   print(i)
+   #time.sleep(1)
+   i-=1
 
 mapa_comp_branco=cria_mapa(n)
 mapa_c=cria_mapa(n)
@@ -179,7 +178,7 @@ while foi_derrotado(mapa)==False:
    while letra_atq not in cabecalho:
       print('Posição inválida')
       letra_atq=input('Digite a letra:').upper()
-   coluna_atq=0
+      coluna_atq=0
    for l in range(len(ALFABETO)):
       if ALFABETO[l]==letra_atq:
          coluna_atq=l
@@ -210,5 +209,7 @@ if foi_derrotado(mapa)==True:
    novamente=input('Jogar novamente? [s/n]')
    if novamente=='s':
       print('recomeça')  #restart
+      foi_derrotado(mapa)==False 
    else:
       print('acaba') #para tudo
+      breakpoint
