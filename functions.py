@@ -12,7 +12,7 @@ def cria_mapa(n):
 
 # função que define se o jogador perdeu
 def foi_derrotado(matriz):
-    N=u"\u001b[43m  \u001b[0m "
+    N=u"\u001b[33m▓  \u001b[0m"
     for i in range(len(matriz)):
         linha=matriz[i]
         for j in range(len(linha)):
@@ -22,7 +22,7 @@ def foi_derrotado(matriz):
 
 #funçao que define se o computador perdeu
 def perdeu(matriz):
-    X=u"\u001b[41m  \u001b[0m "
+    X=u"\u001b[31m▓  \u001b[0m"
     for i in range(len(matriz)):
         linha=matriz[i]
         for j in range(len(linha)):
@@ -32,7 +32,7 @@ def perdeu(matriz):
 
 # função que define se a posição é válida
 def posicao_suporta(mapa,num,num_linha,pos_letra,orient):
-    N=u"\u001b[41m  \u001b[0m "
+    N=u"\u001b[33m▓  \u001b[0m"
     linha=mapa[num_linha-1]
     if orient=='h':
         if len(linha)-pos_letra<num:
@@ -57,7 +57,7 @@ def posicao_suporta(mapa,num,num_linha,pos_letra,orient):
 # função que aloca os navios
 import random
 def aloca_navios(mapa,lista):
-    X=u"\u001b[41m  \u001b[0m "
+    X=u"\u001b[31m▓  \u001b[0m"
     for quant in lista:
         linha=random.randint(0, quant-1)
         coluna=random.randint(0, quant-1)

@@ -55,7 +55,7 @@ while jogo==True:
   #printa a lista de navios
   print('Seus navios: '+', '.join(lista_frota))
 
-  N=u"\u001b[43m  \u001b[0m "
+  N= u"\u001b[33m▓  \u001b[0m"
 
   #para cada tipo de navio mostrar o tipo de navio a ser alocado
   for arma in lista_frota:
@@ -139,10 +139,10 @@ while jogo==True:
   print(mapa_comp)
 
 
-  A=u"\u001b[44m  \u001b[0m "
+  A=u"\u001b[34m▓  \u001b[0m"
   print(N)
   print(A)
-  X=u"\u001b[41m  \u001b[0m "
+  X=u"\u001b[31m▓  \u001b[0m"
   print(X)
 
   while foi_derrotado(mapa)==False and perdeu(mapa_comp)==False:
