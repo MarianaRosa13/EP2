@@ -22,7 +22,7 @@ def foi_derrotado(matriz):
 
 # função que define se a posição é válida
 def posicao_suporta(mapa,num,num_linha,pos_letra,orient):
-    N=u"\u001b[41m  \u001b[0m "
+    N=u"\u001b[41m  \u001b[0m"
     linha=mapa[num_linha-1]
     if orient=='h':
         if len(linha)-pos_letra<num:
@@ -47,7 +47,7 @@ def posicao_suporta(mapa,num,num_linha,pos_letra,orient):
 # função que aloca os navios
 import random
 def aloca_navios(mapa,lista):
-    X=u"\u001b[41m  \u001b[0m "
+    X=u"\u001b[41m  \u001b[0m"
     for quant in lista:
         linha=random.randint(0, quant-1)
         coluna=random.randint(0, quant-1)
@@ -63,8 +63,15 @@ def aloca_navios(mapa,lista):
                 mapa[linha+i][coluna]=X           
     return mapa
 
+
+
+#funcao recebe uma lista com os dois mapas
+
 #função que imprime o mapa 
 def imprime_mapa(m):
+    #for i in m:
+    #dim = len(m[i])
+    
     dim = len(m)
     letras=ALFABETO[:dim]
     cabecalho=''
@@ -74,9 +81,11 @@ def imprime_mapa(m):
         else:
             cabecalho+=' '+ i + ' '
     print(cabecalho)
+    
     for lin in range(dim):
         linha = f'{lin+1} '
         for col in range(dim):
             linha += m[lin][col]
         linha += f'{lin+1} '
         print(linha)
+    

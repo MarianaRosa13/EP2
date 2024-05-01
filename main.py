@@ -35,9 +35,13 @@ num_sorteado=random.randint(0,len(lista_paises)-1)
 pais_sorteado=lista_paises[num_sorteado]
 print(f'O computador é: {pais_sorteado}')
 
+
 #mostra o mapa do tamanho escolhido para o usuário
 mapa=cria_mapa(n)
 print(mapa)
+
+#lista_mapas=[mapa_comp,mapa]
+
 
 #coloca o tipo de navio na lista da frota
 dicio=PAISES[lista_paises[num_pais-1]]
@@ -165,7 +169,9 @@ print(A)
 X=u"\u001b[41m  \u001b[0m "
 print(X)
 
-while foi_derrotado(mapa)==False:
+
+#lista_mapas=[mapa_comp,mapa]
+while foi_derrotado(mapa)==False: 
    imprime_mapa(mapa_comp)
    imprime_mapa(mapa_comp_branco)
    imprime_mapa(mapa)
