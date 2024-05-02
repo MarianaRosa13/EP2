@@ -64,7 +64,6 @@ while jogo==True:
 
   #para cada tipo de navio mostrar o tipo de navio a ser alocado
   for arma in lista_frota:
-    print(lista_frota)
     print(f'Hora de alocar: {arma}')
   #pedir a letra para alocar,formatar como maiúscula,ver se a letra está no cabeçalho
     posicao_letra=input('Informe a letra:').upper()
@@ -87,7 +86,6 @@ while jogo==True:
           num_coluna=l
     #achar o tamanho do navio
     for navio,quant in CONFIGURACAO.items():
-        print(arma)
         if arma in CONFIGURACAO.keys():
           quant=CONFIGURACAO[arma]
     #enquanto não puder alocar, dá inválido, pergunta de novo, e pega a posição de novo
@@ -126,6 +124,8 @@ while jogo==True:
       print(i)
       time.sleep(1)
       i-=1
+  print('Hora de atacar!')
+  time.sleep(1)
 
   #cria um mapa em branco
   mapa_comp_branco=cria_mapa(n)
