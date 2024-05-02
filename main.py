@@ -127,7 +127,7 @@ while jogo==True:
               else:
                 mapa[num_linha-1+i][num_coluna] = N
           imprime_mapa(mapa)
-
+   
   #começa a batalha naval
   print('Iniciando batalha naval!')
   #faz a contagem regressiva
