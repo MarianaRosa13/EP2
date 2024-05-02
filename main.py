@@ -3,10 +3,19 @@ from constants import *
 from functions import *
 import time
 
+
 #variável que decide se o jogo recomeça
 jogo=True
 #enquanto quiser jogar, o jogo recomeça
 while jogo==True:
+  #faz a introdução do jogo
+  print('=====================================================')
+  print('Bem vindo ao melhor jogo de Batalha Naval do Insper!')
+  print('=====================================================')
+  time.sleep(1)
+  print('Seu jogo está começando...')
+  time.sleep(1)
+  print('Escolha um país para defender:')
   #faz a string dos países
   paises_stg=''
   i=1
@@ -15,9 +24,10 @@ while jogo==True:
     paises_stg+=i_stg + ': '
     paises_stg+=pais + '\n'
     for arma,qtd in frota.items():
+      paises_stg+= '   '
       qtd_stg=str(qtd)
-      paises_stg+=qtd_stg + ' ' + arma + ' '
-    paises_stg+='\n'
+      paises_stg+=qtd_stg + ' ' + arma
+      paises_stg+='\n'
     i+=1
   print(paises_stg)
 
@@ -78,6 +88,9 @@ while jogo==True:
         posicao_num=input('Informe o número:')
     #pedir a orientação
     orient=input('Informe a orientação: [v/h]')
+    while orient!='v' and orient!='h':
+      print('Orientação inválida')
+      orient=input('Informe a orientação: [v/h]')
     #fazer uma string da posição
     posicao_stg=posicao_letra + posicao_num
     #achar o numero da coluna a partir da letra
@@ -127,6 +140,8 @@ while jogo==True:
   print('Hora de atacar!')
   time.sleep(1)
 
+  print(mapa)
+
   #cria um mapa em branco
   mapa_comp_branco=cria_mapa(n)
   mapa_c=cria_mapa(n)
@@ -148,7 +163,8 @@ while jogo==True:
    #variável com a cor vermelha
   X=u"\u001b[31m▓  \u001b[0m"
 
-  #cria uma lista para as posições que já foram atacadas
+  #cria duas listas para as posições que já foram atacadas do jogador e computador
+  lista_atacados=[]
   lista_posicoes=[]
   #executa o código de ataque enquanto ninguém ganhou
   while foi_derrotado(mapa)==False and perdeu(mapa_comp)==False:
@@ -176,16 +192,27 @@ while jogo==True:
       num_atq_stg=str(num_atq)
       posicao_atq = mapa_comp[num_atq-1][coluna_atq]
       posicao_atq_stg=letra_atq + num_atq_stg
-      #verifica se tem barco na posição, se é boomm ou água
-      if posicao_atq==X:
-         print(f'Jogador --->>>{posicao_atq_stg}')
-         mapa_comp_branco[num_atq-1][coluna_atq] = X
-         mapa_comp[num_atq-1][coluna_atq] = N
-         print('BOOOMMM!!')
+      #se a posição ainda não foi atacada
+      if posicao_atq_stg not in lista_atacados:
+        #coloca ela na lista de lugares atacados
+        lista_atacados.append(posicao_atq_stg)
+        print(lista_atacados)
+        #verifica se tem barco na posição, se é boomm ou água
+        print('posicao atacada do jogador:',posicao_atq)
+        print('lista de atacados:',lista_atacados)
+        if posicao_atq==X:
+          print(f'Jogador --->>>{posicao_atq_stg}')
+          mapa_comp_branco[num_atq-1][coluna_atq] = X
+          mapa_comp[num_atq-1][coluna_atq] = N
+          print('BOOOMMM!!')
+        else:
+          print(f'Jogador --->>>{posicao_atq_stg}')
+          mapa_comp_branco[num_atq-1][coluna_atq] = A
+          print('Água!')
       else:
-         print(f'Jogador --->>>{posicao_atq_stg}')
-         mapa_comp_branco[num_atq-1][coluna_atq] = A
-         print('Água!')
+        print('Você já atacou essa posição')
+        continue
+
       #sorteia posição para o computador atacar
       lincomp_atq=random.randint(0,len(mapa)-1)
       colcomp_atq=random.randint(0,len(mapa)-1)
@@ -194,15 +221,21 @@ while jogo==True:
       #pega a letra a partir da coluna sorteada
       for l in range(len(ALFABETO)):
          letra_atq_comp=ALFABETO[colcomp_atq]
-      comp_atq=mapa[lincomp_atq-1][colcomp_atq]
+      comp_atq=mapa[lincomp_atq][colcomp_atq]
+      print(f'Linha: {lincomp_atq}')
+      print(f'Coluna: {colcomp_atq}')
       #faz string da posição
       comp_atq_stg=letra_atq_comp + lincomp_stg
       #verifica se a posição já está na lista das posições atacadas
       #se não estiver na lista, coloca na lista e ataca
+      print('lista onde o pc atacou:',comp_atq_stg)
+      print('lista do computador atacado:',lista_posicoes)
       if comp_atq_stg not in lista_posicoes:
          lista_posicoes.append(comp_atq_stg)
+         print(f'esse é o n: {N}')
+         print(f'esse é o ataque: {comp_atq}')
          #verifica se tem barco ou não
-         if comp_atq == N or comp_atq == ' N ':
+         if comp_atq == N:
             mapa[lincomp_atq][colcomp_atq] = X
             print(f'Computador --->>>{comp_atq_stg}')
             print('BOOOMMM!!')
@@ -212,7 +245,9 @@ while jogo==True:
             print('Água!')
       #se estiver na lista, sorteia outros números para as posições
       else:
+         print('ta na listaaaaa')
          while comp_atq_stg in lista_posicoes:
+            print('ainda na lista')
             lincomp_atq=random.randint(0,len(mapa)-1)
             colcomp_atq=random.randint(0,len(mapa)-1)
             lincomp_stg=str(lincomp_atq+1)
@@ -221,18 +256,9 @@ while jogo==True:
                letra_atq_comp=ALFABETO[colcomp_atq]
             comp_atq=mapa[lincomp_atq-1][colcomp_atq]
             comp_atq_stg=letra_atq_comp + lincomp_stg
-         #se não estiver na lista, coloca na lista e ataca
-         if comp_atq_stg not in lista_posicoes:
-            lista_posicoes.append(comp_atq_stg)
-            #verifica se tem barco ou não
-            if comp_atq == N or comp_atq == ' N ':
-               mapa[lincomp_atq][colcomp_atq] = X
-               print(f'Computador --->>>{comp_atq_stg}')
-               print('BOOOMMM!!')
-            else:
-               mapa[lincomp_atq][colcomp_atq] = A
-               print(f'Computador --->>>{comp_atq_stg}')
-               print('Água!')
+            print(f'Linha: {lincomp_atq}')
+            print(f'Coluna: {colcomp_atq}')
+            print(f'posição nova: {comp_atq_stg}')
 
   #se o jogador perdeu, avisa que perdeu e pergunta se quer recomeçar o jogo
   if foi_derrotado(mapa)==True:
